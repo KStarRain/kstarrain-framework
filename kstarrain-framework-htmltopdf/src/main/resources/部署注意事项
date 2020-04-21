@@ -1,5 +1,4 @@
 Wkhtmltopdf PDF转换工具依赖库安装
-yum install -y fontconfig libX11 libXext libXrender libjpeg libpng xorg-x11-fonts-75dpi xorg-x11-fonts-Type1
 yum install libXrender*
 yum install libfontconfig*
 yum install libXext-devel
@@ -7,5 +6,6 @@ yum install libssl*
 yum install openssl-devel
 yum install xorg-x11-fonts-Type1 xorg-x11-fonts-75dpi
 yum install libjpeg*
+yum install -y fontconfig libX11 libXext libXrender libjpeg libpng xorg-x11-fonts-75dpi xorg-x11-fonts-Type1
 将windows c:\Windows\fonts\simsun.ttc拷贝到linux服务器/usr/share/fonts/目录下，解决pdf中文乱码问题
 

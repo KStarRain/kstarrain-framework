@@ -1,9 +1,9 @@
-package com.kstarrain.framework.htmltopdf.elastic.job.autoconfigure;
+package com.kstarrain.framework.elastic.job.autoconfigure;
 
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
-import com.kstarrain.framework.htmltopdf.elastic.job.autoconfigure.properties.ZookeeperProperties;
-import com.kstarrain.framework.htmltopdf.elastic.job.parser.ElasticJobScheduledParser;
+import com.kstarrain.framework.elastic.job.parser.ElasticJobScheduledParser;
+import com.kstarrain.framework.elastic.job.autoconfigure.properties.ZookeeperProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

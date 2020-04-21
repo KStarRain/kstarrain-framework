@@ -1,4 +1,4 @@
-package com.kstarrain.framework.htmltopdf.elastic.job.annotation;
+package com.kstarrain.framework.elastic.job.annotation;
 
 import org.springframework.stereotype.Component;
 

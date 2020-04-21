@@ -1,4 +1,4 @@
-package com.kstarrain.framework.htmltopdf.elastic.job.parser;
+package com.kstarrain.framework.elastic.job.parser;
 
 
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
@@ -11,8 +11,8 @@ import com.dangdang.ddframe.job.executor.handler.JobProperties.JobPropertiesEnum
 import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
 import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
-import com.kstarrain.framework.htmltopdf.elastic.job.annotation.ElasticJobScheduled;
-import com.kstarrain.framework.htmltopdf.elastic.job.contant.ElasticJobContant;
+import com.kstarrain.framework.elastic.job.annotation.ElasticJobScheduled;
+import com.kstarrain.framework.elastic.job.contant.ElasticJobContant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;

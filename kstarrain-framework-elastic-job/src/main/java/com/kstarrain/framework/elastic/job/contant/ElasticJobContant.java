@@ -1,4 +1,4 @@
-package com.kstarrain.framework.htmltopdf.elastic.job.contant;
+package com.kstarrain.framework.elastic.job.contant;
 
 /**
  * @author: Dong Yu

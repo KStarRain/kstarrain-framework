@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.kstarrain.framework.htmltopdf.elastic.job.autoconfigure.ElasticJobAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.kstarrain.framework.elastic.job.autoconfigure.ElasticJobAutoConfiguration
