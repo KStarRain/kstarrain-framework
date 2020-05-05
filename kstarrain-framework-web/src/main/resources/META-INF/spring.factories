@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.kstarrain.framework.web.config.AspectConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.kstarrain.framework.web.config.UtilAutoConfiguration

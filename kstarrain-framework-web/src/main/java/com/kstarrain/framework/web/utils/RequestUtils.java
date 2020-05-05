@@ -43,36 +43,39 @@ public final class RequestUtils {
     }
 
 
-    public static String getRemoteIpAddr(HttpServletRequest request) {
-        String ipAddress = request.getHeader("x-forwarded-for");
-        if (ipAddress == null || ipAddress.length() == 0 || UNKNOWN.equalsIgnoreCase(ipAddress)) {
-            ipAddress = request.getHeader("Proxy-Client-IP");
+    public static String getRemoteIp(HttpServletRequest request) {
+
+        // x-forwarded-for存在值则说明有经过反向代理
+        String ip = request.getHeader("x-forwarded-for");
+        if (StringUtils.isBlank(ip) || UNKNOWN.equalsIgnoreCase(ip)) {
+            // 如果反向代理关闭了x-forwarded-for取值选项
+            ip = request.getHeader("Proxy-Client-IP");
         }
 
-        if (ipAddress == null || ipAddress.length() == 0 || UNKNOWN.equalsIgnoreCase(ipAddress)) {
-            ipAddress = request.getHeader("WL-Proxy-Client-IP");
+        if (StringUtils.isBlank(ip) || UNKNOWN.equalsIgnoreCase(ip)) {
+            // 如果反向代理关闭了x-forwarded-for取值选项
+            ip = request.getHeader("WL-Proxy-Client-IP");
         }
 
-        if (ipAddress == null || ipAddress.length() == 0 || UNKNOWN.equalsIgnoreCase(ipAddress)) {
-            ipAddress = request.getRemoteAddr();
-            if (LOCALHOST.equals(ipAddress) || "0:0:0:0:0:0:0:1".equals(ipAddress)) {
-                InetAddress inet = null;
+        if (StringUtils.isBlank(ip) || UNKNOWN.equalsIgnoreCase(ip)) {
+            // 没有经过反向代理则可以直接取出请求来源IP
+            ip = request.getRemoteAddr();
 
+            if (LOCALHOST.equals(ip) || "0:0:0:0:0:0:0:1".equals(ip)) {
                 try {
-                    inet = InetAddress.getLocalHost();
-                    ipAddress = inet.getHostAddress();
+                    ip = InetAddress.getLocalHost().getHostAddress();
                 } catch (UnknownHostException var4) {
                     log.error(var4.getMessage(), var4);
                 }
             }
         }
 
-        if (ipAddress != null && ipAddress.length() > 15 && ipAddress.indexOf(",") > 0) {
-            ipAddress = ipAddress.substring(0, ipAddress.indexOf(","));
+        if (ip != null && ip.length() > 15 && ip.indexOf(",") > 0) {
+            ip = ip.substring(0, ip.indexOf(","));
         }
 
-        log.info("访问用户的真实地址为 {}", ipAddress);
-        return ipAddress;
+        log.info("访问用户的真实地址为 {}", ip);
+        return ip;
     }
 
 
