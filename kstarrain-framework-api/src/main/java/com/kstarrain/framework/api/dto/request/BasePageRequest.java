@@ -1,6 +1,8 @@
 package com.kstarrain.framework.api.dto.request;
 
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -9,10 +11,16 @@ import lombok.Data;
  * @description:
  */
 @Data
+@ApiModel("分页查询 基础条件")
 public class BasePageRequest {
 
+    @ApiModelProperty(value = "当前页", position = 1)
     private Integer pageNum;
+
+    @ApiModelProperty(value = "每页展示条数", position = 2)
     private Integer pageSize;
+
+    @ApiModelProperty(value = "排序规则", position = 3)
     private String orderBy;
 
     public BasePageRequest toPageInfo() {

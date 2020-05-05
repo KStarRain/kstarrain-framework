@@ -1,4 +1,4 @@
-package com.kstarrain.framework.elastic.job.autoconfigure.properties;
+package com.kstarrain.framework.elastic.job.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

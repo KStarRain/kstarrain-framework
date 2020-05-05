@@ -145,7 +145,7 @@ public class ElasticJobScheduledParser implements ApplicationContextAware {
 			defaultListableBeanFactory.registerBeanDefinition(springJobSchedulerBeanName, factory.getBeanDefinition());
 			SpringJobScheduler springJobScheduler = (SpringJobScheduler) ctx.getBean(springJobSchedulerBeanName);
 			springJobScheduler.init();
-			log.info("【" + jobName + "】 " + jobClass + " init success");
+			log.info("Elastic Job {jobName=[{}], jobClass=[{}], cron=[{}]} init success", jobName, jobClass, cron);
 		}
 
 

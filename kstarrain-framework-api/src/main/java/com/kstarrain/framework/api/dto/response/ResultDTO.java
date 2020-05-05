@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel("Restful 模型")
+@ApiModel("Restful 基础模型")
 public class ResultDTO<T> {
 
     @ApiModelProperty(value = "业务标识（true：成功; false：失败）", required = true, example = "true", position=1)
