@@ -35,8 +35,6 @@
         <module>kstarrain-framework-htmltopdf</module>
         <module>kstarrain-framework-web</module>
         <module>kstarrain-framework-common</module>
-        <module>kstarrain-framework-parent</module>
-        <module>kstarrain-framework-swagger</module>
     </modules>
 
     <!--<dependencies>-->

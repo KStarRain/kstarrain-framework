@@ -2,6 +2,7 @@ package com.kstarrain.framework.web.filter;
 
 import com.kstarrain.framework.common.utils.UUIDUtils;
 import com.kstarrain.framework.web.enums.LogKeyEnum;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingRequestWrapper;
@@ -17,7 +18,13 @@ import java.io.IOException;
  * @create: 2020-04-27 16:58
  * @description:
  */
+@Slf4j
 public class RequestWrapperFilter extends OncePerRequestFilter {
+
+    public RequestWrapperFilter() {
+        log.info("@Import {className={}) load success", this.getClass().getName());
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
 

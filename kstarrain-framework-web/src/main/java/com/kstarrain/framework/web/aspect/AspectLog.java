@@ -28,6 +28,9 @@ import java.util.List;
 @Aspect
 public class AspectLog {
 
+    public AspectLog() {
+        log.info("@Import {className={}) load success",this.getClass().getName());
+    }
 
     /**
      * 切点

@@ -22,6 +22,10 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
+    public ControllerExceptionHandler() {
+        log.info("@Import {className={}) load success", this.getClass().getName());
+    }
+
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResponseEntity<ResultDTO> handleException(HttpServletRequest request, Exception e) {
