@@ -17,7 +17,7 @@ import lombok.Data;
 @ApiModel("Restful 基础模型")
 public class ResultDTO<T> {
 
-    @ApiModelProperty(value = "业务标识（true：成功; false：失败）", required = true, example = "true", position=1)
+    @ApiModelProperty(value = "业务标识（true：成功; false：失败）", position = 1, required = true, example = "true")
     private Boolean success;
 
     @ApiModelProperty(value = "数据", position = 2)

@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * @create: 2020-05-02 14:32
  * @description:
  */
-@Target({ ElementType.TYPE })
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PrintAspectLog {
 

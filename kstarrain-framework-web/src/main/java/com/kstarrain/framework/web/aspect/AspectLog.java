@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -35,7 +36,8 @@ public class AspectLog {
     /**
      * 切点
      */
-    @Pointcut("@within(com.kstarrain.framework.web.aspect.annotation.PrintAspectLog) && !@annotation(com.kstarrain.framework.web.aspect.annotation.ExcludeAspectLog)")
+    @Pointcut("@annotation(com.kstarrain.framework.web.aspect.annotation.PrintAspectLog) " +
+            "|| (@within(com.kstarrain.framework.web.aspect.annotation.PrintAspectLog) && !@annotation(com.kstarrain.framework.web.aspect.annotation.ExcludeAspectLog))")
     public void pointCut() {
     }
 
@@ -77,10 +79,10 @@ public class AspectLog {
                 log.error("【Response Information】 : ↓ {}", LogUtils.packageRes(((ResponseEntity) returnObject).getStatusCode().value(), JacksonUtils.toJSONString(((ResponseEntity) returnObject).getBody())));
             }
         } else if (returnObject != null){
-            try {
+            if (returnObject instanceof ModelAndView){
+                log.info("【Response Information】 : ↓ {}", LogUtils.packageRes(returnObject.toString()));
+            } else {
                 log.info("【Response Information】 : ↓ {}", LogUtils.packageRes(JacksonUtils.toJSONString(returnObject)));
-            } catch (Exception e) {
-                log.info("【Response Information】 : ↓ {}", returnObject);
             }
         }
     }

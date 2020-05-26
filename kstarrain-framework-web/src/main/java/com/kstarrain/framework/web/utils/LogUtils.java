@@ -1,8 +1,11 @@
 package com.kstarrain.framework.web.utils;
 
+import com.kstarrain.framework.common.utils.UUIDUtils;
+import com.kstarrain.framework.web.enums.LogKeyEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.MDC;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,8 +20,6 @@ import java.util.List;
  */
 @Slf4j
 public class LogUtils {
-
-
 
     public static String packageReq(HttpServletRequest request, List<MultipartFile> files){
 
@@ -95,5 +96,19 @@ public class LogUtils {
     }
 
 
+
+    public interface Callback {
+        void execute();
+    }
+
+    public static <T> void reqIdLogAround(LogUtils.Callback function) {
+        try {
+            MDC.put(LogKeyEnum.REQUEST_ID.getCode(), UUIDUtils.newUuid());
+            function.execute();
+        } finally {
+            MDC.remove(LogKeyEnum.REQUEST_ID.getCode());
+        }
+
+    }
 
 }
